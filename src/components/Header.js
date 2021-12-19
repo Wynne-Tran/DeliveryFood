@@ -37,6 +37,6 @@ const styles = StyleSheet.create({
         color: colors.headerText,
         fontSize: 22,
         fontWeight: "bold",
-        marginLeft: 30,
+        marginLeft: 60,
     }
 })

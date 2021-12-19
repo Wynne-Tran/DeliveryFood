@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, StatusBar, TextInput } from 'react-native';
 import {colors, parameters, title} from "../../global/styles"
 import Header from '../../components/Header';
 import * as Animatable from 'react-native-animatable'
-import { Icon } from 'react-native-elements/dist/icons/Icon';
+import { Icon, Button, SocialIcon } from 'react-native-elements';
 
 const SignInScreen = () => {
 
@@ -60,6 +60,56 @@ const SignInScreen = () => {
                         />
                     </Animatable.View>
                 </View>
+
+
+                <View style = {{marginHorizontal: 20, marginTop: 30}}>
+                    <Button 
+                        title = "SIGN - IN"
+                        buttonStyle = {parameters.styledButton}
+                        titleStyle = {parameters.buttonTitle}
+                    />
+                </View>
+
+                <View style = {{alignItems: "center", marginTop: 20}}>
+                    <Text style = {{...styles.text1, textDecorationLine: "underline"}}>Forgot Password ?</Text>
+                </View>
+
+                <View style = {{alignItems: "center", marginTop: 20, marginBottom: 20}}>
+                    <Text style = {{fontWeight: "bold", fontSize: 20}}>OR</Text>
+                </View>
+
+                <View style = {{marginHorizontal: 5, marginTop: 5}}>
+                    <SocialIcon 
+                        title = "Sign In With Facebook"
+                        button 
+                        type= "facebook"
+                        style = {styles.socialIcon}
+                        onPress = {() => {}}
+                    />
+                </View>
+
+                <View style = {{marginHorizontal: 10, marginTop: 5}}>
+                    <SocialIcon 
+                        title = "Sign In With Google"
+                        button 
+                        type= "google"
+                        style = {styles.socialIcon}
+                        onPress = {() => {}}
+                    />
+                </View>
+
+                <View style = {{marginTop: 10, marginLeft: 20, marginBottom: 5}}>
+                    <Text style = {{...styles.text1}}>New on XpressFood ?</Text>
+                </View>
+
+                <View style = {{alignItems: "flex-end", marginHorizontal: 20}}>
+                    <Button 
+                        title="Create an account"
+                        buttonStyle={styles.createButton}
+                        titleStyle = {styles.createButtonTitle}
+                    
+                    />
+                </View>
             </View>
         </View>
     )
@@ -95,5 +145,28 @@ const styles = StyleSheet.create({
         alignItems: "center",
         height: 40,
         paddingLeft: 15
+    },
+    socialIcon: {
+        borderRadius: 12,
+        height: 50
+    },
+    createButton:{
+        backgroundColor: "white",
+        alignContent: "center",
+        justifyContent: "center",
+        borderRadius: 12,
+        borderWidth: 1,
+        borderColor: "#ff8c52",
+        height: 50,
+        paddingHorizontal: 20,
+
+    },
+    createButtonTitle:{
+        color: "#ff8c52",
+        fontSize: 16,
+        fontWeight: "bold",
+        alignItems: "center",
+        justifyContent: "center",
+        marginTop: -3
     }
 })

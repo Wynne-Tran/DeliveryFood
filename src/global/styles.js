@@ -16,3 +16,10 @@ export const parameters = {
     headerHeight: 40,
 
 }
+
+export const title = {
+    color: colors.buttons,
+    fontSize: 18,
+    fontWeight: "bold",
+    marginLeft: 30,
+}

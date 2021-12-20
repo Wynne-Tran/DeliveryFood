@@ -3,7 +3,7 @@ import { StyleSheet} from 'react-native'
 import {createNativeStackNavigator, createStackNavigator, TransitionPresets} from '@react-navigation/stack'
 import SignInWelcome from '../screens/authScreens/SignInWelcome'
 import SignInScreen from '../screens/authScreens/SignInScreen'
-
+import HomeScreen from '../screens/HomeScreen'
 
 const AuthStack = createStackNavigator();
 
@@ -23,6 +23,16 @@ const AuthNavigators = () => {
             <AuthStack.Screen 
                 name = "SignInScreen"
                 component = {SignInScreen}
+                options = {{
+
+                    headerShown: false,
+                    ...TransitionPresets.RevealFromBottomAndroid               
+                }}
+            />
+
+            <AuthStack.Screen 
+                name = "HomeScreen"
+                component = {HomeScreen}
                 options = {{
 
                     headerShown: false,

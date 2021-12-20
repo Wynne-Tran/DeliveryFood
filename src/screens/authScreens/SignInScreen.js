@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import * as Animatable from 'react-native-animatable'
 import { Icon, Button, SocialIcon } from 'react-native-elements';
 
-const SignInScreen = ({navigation}) => {
+const SignInScreen = ({navigation, }) => {
 
     const[textInput2Fossued, setTextInput2Fossued] = useState(false)
 
@@ -67,6 +67,7 @@ const SignInScreen = ({navigation}) => {
                         title = "SIGN - IN"
                         buttonStyle = {parameters.styledButton}
                         titleStyle = {parameters.buttonTitle}
+                        onPress={() => {navigation.navigate('HomeScreen')}}
                     />
                 </View>
 

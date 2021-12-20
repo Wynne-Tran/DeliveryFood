@@ -6,7 +6,7 @@ import * as Animatable from 'react-native-animatable'
 import { Icon, Button, SocialIcon } from 'react-native-elements';
 import Swiper from 'react-native-swiper/src'
 
-const SignInWelcome = () => {
+const SignInWelcome = ({navigation}) => {
     return (
 
        <View style={{flex: 1}}>
@@ -57,6 +57,10 @@ const SignInWelcome = () => {
                         title = "SIGN - IN"
                         buttonStyle = {parameters.styledButton}
                         titleStyle = {parameters.buttonTitle}
+                        onPress={() => {
+                            navigation.navigate("SignInScreen")
+                        }}
+
                     />
                 </View>
                 <View></View>

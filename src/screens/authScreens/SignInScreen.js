@@ -5,7 +5,7 @@ import Header from '../../components/Header';
 import * as Animatable from 'react-native-animatable'
 import { Icon, Button, SocialIcon } from 'react-native-elements';
 
-const SignInScreen = () => {
+const SignInScreen = ({navigation}) => {
 
     const[textInput2Fossued, setTextInput2Fossued] = useState(false)
 
@@ -14,7 +14,7 @@ const SignInScreen = () => {
 
     return (
         <View style = {styles.container}>
-            <Header title= "MY ACCOUNT" type="arrow-left"/>
+            <Header title= "MY ACCOUNT" type="arrow-left" navigation = {navigation}/>
             <View style = {{marginLeft: 20, marginTop: 10}}>
                 <Text style = {title} >Sign In</Text>
             </View>

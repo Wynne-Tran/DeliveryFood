@@ -1,4 +1,4 @@
-# Build Food Delivery App Using Reacu Native
+# Build Food Delivery App Using React Native
 
 Branch Master
 

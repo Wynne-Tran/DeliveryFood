@@ -10,7 +10,7 @@ const SignInWelcome = ({navigation}) => {
     return (
 
        <View style={{flex: 1}}>
-            <View style = {{flex: 3, justifyContent:'flex-start', alignItems:'center', paddingTop: 20}}>
+            <View style = {{flex: 3, justifyContent:'flex-start', alignItems:'center', paddingTop: 50}}>
             <Text style = {{fontSize:26, color: colors.buttons, fontWeight:'bold'}}>DISCOVER RESTAURANTS</Text>
             <Text style = {{fontSize:26, color: colors.buttons, fontWeight:'bold'}}>IN YOUR AREA</Text>
             </View>

@@ -29,6 +29,7 @@ export default Header
 
 const styles = StyleSheet.create({
     header: {
+        paddingTop: 50,
         flexDirection: "row",
         backgroundColor: colors.buttons,
         height: parameters.headerHeight

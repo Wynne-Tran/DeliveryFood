@@ -36,9 +36,10 @@ export default HomeHeader
 
 const styles = StyleSheet.create({
     header: {
+        paddingTop: 25,
         flexDirection: 'row',
         backgroundColor: colors.buttons,
-        height: parameters.headerHeight,
+        height: 80,
         justifyContent: 'space-between',
     }
 })

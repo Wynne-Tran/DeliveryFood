@@ -7,7 +7,7 @@ import {Icon} from 'react-native-elements'
 const Header = ({title, type, navigation}) => {
     return (
         <View style = {styles.header}>
-            <View style = {{marginLeft: 20}}>
+            <View style = {{marginLeft: 20, marginTop: 5}}>
                 <Icon 
                     type = "material-community"
                     name = {type}
@@ -16,7 +16,7 @@ const Header = ({title, type, navigation}) => {
                     onPress = {() => {navigation.goBack()}}
                     
                 />
-                
+                    
             </View>
             <View>
                 <Text style = {styles.headerText}>{title}</Text>
@@ -29,15 +29,18 @@ export default Header
 
 const styles = StyleSheet.create({
     header: {
-        paddingTop: 50,
+        paddingTop: 30,
         flexDirection: "row",
         backgroundColor: colors.buttons,
-        height: parameters.headerHeight
+        height: 80,
+        
     },
     headerText: {
         color: colors.headerText,
         fontSize: 22,
         fontWeight: "bold",
-        marginLeft: 60,
+        marginLeft: 50,
+        marginTop: 5
+        
     }
 })

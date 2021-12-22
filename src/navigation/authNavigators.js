@@ -4,6 +4,7 @@ import {createNativeStackNavigator, createStackNavigator, TransitionPresets} fro
 import SignInWelcome from '../screens/authScreens/SignInWelcome'
 import SignInScreen from '../screens/authScreens/SignInScreen'
 import HomeScreen from '../screens/HomeScreen'
+import RootClientTabs from './ClientTabs'
 
 const AuthStack = createStackNavigator();
 
@@ -31,8 +32,8 @@ const AuthNavigators = () => {
             />
 
             <AuthStack.Screen 
-                name = "HomeScreen"
-                component = {HomeScreen}
+                name = "RootClientTabs"
+                component = {RootClientTabs}
                 options = {{
 
                     headerShown: false,

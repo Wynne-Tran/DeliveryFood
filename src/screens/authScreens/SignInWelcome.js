@@ -10,9 +10,9 @@ const SignInWelcome = ({navigation}) => {
     return (
 
        <View style={{flex: 1}}>
-            <View style = {{flex: 3, justifyContent:'flex-start', alignItems:'center', paddingTop: 50}}>
-            <Text style = {{fontSize:26, color: colors.buttons, fontWeight:'bold'}}>DISCOVER RESTAURANTS</Text>
-            <Text style = {{fontSize:26, color: colors.buttons, fontWeight:'bold'}}>IN YOUR AREA</Text>
+            <View style = {{flex: 3, justifyContent:'flex-start', alignItems:'center', marginTop: 100}}>
+                <Text style = {{fontSize:26, color: colors.buttons, fontWeight:'bold'}}>DISCOVER RESTAURANTS</Text>
+                <Text style = {{fontSize:26, color: colors.buttons, fontWeight:'bold'}}>IN YOUR AREA</Text>
             </View>
 
             <View style = {{flex:4, justifyContent:"center"}}>
@@ -51,7 +51,7 @@ const SignInWelcome = ({navigation}) => {
                 </Swiper>
             </View>
 
-            <View style = {{flex:4, justifyContent:"flex-end", marginBottom: 20}}>
+            <View style = {{flex:4, justifyContent:"flex-end", marginBottom: 30}}>
                 <View style = {{marginHorizontal: 20, marginTop: 30, marginBottom: 20}}>
                     <Button 
                         title = "SIGN - IN"

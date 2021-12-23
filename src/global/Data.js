@@ -73,17 +73,17 @@ export const filterData2 = [
     
 
 
-              export const productData = [{name:"Hand cut chips", price:29.30,image:"./../assets/images/menu-image3.jpg",
+              export const productData = [{name:"Hand cut chips", price:29.30,image: require('../../assets/images/menu-image1.jpg'),
               details:"Two 100% fresh beef burger patties that are hot,deliciously",id:0},
-                {name:"Big Mac", price:50.80,image:"./../assets/images/menu-image3.jpg",
+                {name:"Big Mac", price:50.80,image: require('../../assets/images/menu-image1.jpg'),
                 details:"McFeast features two 100% fresh beef burger patties that are hot",id:1},
-                {name:"Chicken Burger", price:70,image:"./../assets/images/menu-image3.jpg",details:"",id:2},
+                {name:"Chicken Burger", price:70,image: require('../../assets/images/menu-image1.jpg'),details:"",id:2},
                 
-                {name:"Hand cut chips", price:29.30,image:"./../assets/images/menu-image3.jpg",
+                {name:"Hand cut chips", price:29.30,image: require('../../assets/images/menu-image1.jpg'),
                 details:"Two 100% fresh beef burger patties that are hot,deliciously",id:3},
-                {name:"Big Mac", price:70.20,image:"./../assets/images/menu-image3.jpg",
+                {name:"Big Mac", price:70.20,image: require('../../assets/images/menu-image1.jpg'),
                 details:"McFeast features two 100% fresh beef burger patties that are hot",id:4},
-                {name:"Chicken Burger", price:70,image:"./../assets/images/menu-image3.jpg",details:"",id:5},
+                {name:"Chicken Burger", price:70,image: require('../../assets/images/menu-image1.jpg'),details:"",id:5},
               
                   ];   
                   
@@ -127,7 +127,7 @@ export const filterData2 = [
             { 
               meal:"Big Mac",
               price:70.20,
-              image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate1.png",
+              image:require('../../assets/images/menu-image4.jpg'),
               details:"McFeast features two 100% fresh beef burger patties that are hot",
               preferenceTitle:["Choose your 2 dips","Choose your 1st drink flavour", "Choose your 2nd drink flavour","Would you like to add a side?","Would you Like any extra sauce?"  ],
               preferenceData: [
@@ -163,7 +163,7 @@ export const filterData2 = [
             { 
               meal:"Hand cut chips", 
               price:29.30,
-              image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",
+              image: require('../../assets/images/menu-image1.jpg'),
               details:"Two 100% fresh beef burger patties that are hot,deliciously",
               preferenceTitle:["Choose your 2 dips","Choose your 1st drink flavour", "Choose your 2nd drink flavour","Would you like to add a side?","Would you Like any extra sauce?"  ],
               preferenceData: [
@@ -199,7 +199,7 @@ export const filterData2 = [
             {
               meal:"Chicken Burger",
               price:45.70,
-              image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate3.png",
+              image: require('../../assets/images/menu-image4.jpg'),
               details:"",
               preferenceTitle:["Choose your 2 dips","Choose your 1st drink flavour", "Choose your 2nd drink flavour","Would you like to add a side?","Would you Like any extra sauce?"  ],
               preferenceData: [
@@ -236,7 +236,7 @@ export const filterData2 = [
             {
               meal:"Big Mac",
               price:50.80,
-              image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate4.png",
+              image: require('../../assets/images/menu-image5.jpg'),
               details:"McFeast features two 100% fresh beef burger patties that are hot",
               preferenceTitle:["Choose your 2 dips","Choose your 1st drink flavour", "Choose your 2nd drink flavour","Would you like to add a side?","Would you Like any extra sauce?"  ],
               preferenceData: [
@@ -275,7 +275,7 @@ export const filterData2 = [
               
               meal:"Hand cut chips", 
               price:29.30,
-              image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate5.png",
+              image: require('../../assets/images/menu-image5.jpg'),
               details:"Two 100% fresh beef burger patties that are hot,deliciously",
               
               preferenceTitle:["Choose your 2 dips","Choose your 1st drink flavour", "Choose your 2nd drink flavour","Would you like to add a side?","Would you Like any extra sauce?"  ],
@@ -314,7 +314,7 @@ export const filterData2 = [
             { 
               meal:"Big Mac",
               price:70.20,
-              image:"https://bukasapics.s3.us-east-2.amazonaws.com/plate1.png",
+              image: require('../../assets/images/menu-image4.jpg'),
               details:"McFeast features two 100% fresh beef burger patties that are hot",
               preferenceTitle:["Choose your 2 dips","Choose your 1st drink flavour", "Choose your 2nd drink flavour","Would you like to add a side?","Would you Like any extra sauce?"  ],
               preferenceData: [

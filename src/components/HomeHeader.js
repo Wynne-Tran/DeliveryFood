@@ -2,7 +2,7 @@ import React from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import {colors, parameters } from '../global/styles'
 import {Icon, withBadge} from 'react-native-elements'
-const HomeHeader = () => {
+const HomeHeader = ({navigation}) => {
     const BadgeIcon = withBadge(0)(Icon)
     return (
         <View style={styles.header}>
@@ -12,6 +12,9 @@ const HomeHeader = () => {
                     name = 'menu'
                     color = {colors.cardbackground}
                     size = {32}
+                    onPress = {() => {
+                        navigation.toggleDrawer()
+                    }}
                 />
             </View>
 

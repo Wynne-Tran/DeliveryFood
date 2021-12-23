@@ -15,9 +15,15 @@ const ClientTabsNav = createBottomTabNavigator();
 const ClientTabs = () => {
     return (
         <ClientTabsNav.Navigator
-            tabBarOptions = {{
-                activeTintColor: colors.buttons
-            }}
+            screenOptions = {{
+                "tabBarActiveTintColor": colors.buttons,
+                "tabBarStyle": [
+                  {
+                    "display": "flex"
+                  },
+                  null
+                ]
+              }}
         >
             <ClientTabsNav.Screen 
                 name = "HomeScreen"

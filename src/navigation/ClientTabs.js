@@ -82,6 +82,7 @@ const ClientTabs = () => {
 
             < ClientTabsNav.Screen 
                 name = "MyAccount"
+
                 component = {MyAccountScreen}
                 options = {
                     {
@@ -97,7 +98,7 @@ const ClientTabs = () => {
                         )
                     }
                 }
-            />
+            />   
 
 
         </ClientTabsNav.Navigator>

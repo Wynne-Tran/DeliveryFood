@@ -7,11 +7,12 @@ import {Icon} from 'react-native-elements'
 import {filterData, restaurantsData} from '../global/Data'
 import Foodcard from '../components/Foodcard'
 import Countdown from 'react-native-countdown-component'
+import { color } from 'react-native-elements/dist/helpers'
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
-const HomeScreen = () => {
+const HomeScreen = ({navigation}) => {
     const [delivery, setDelivery] = useState(true)
     const [indexCheck, setIndexCheck] = useState("0")
 
@@ -39,6 +40,7 @@ const HomeScreen = () => {
                             <TouchableOpacity
                                 onPress={() => {
                                     setDelivery(false)
+                                    navigation.navigate("RestaurantMapScreen")
                                 }}
                             >
                                 <View style = {{...styles.deliveryButton, backgroundColor : delivery ? colors.grey4: colors.buttons}}>
@@ -187,9 +189,10 @@ const HomeScreen = () => {
                     <View style = {styles.headerTextView}>
                         <Text style = {styles.headerText}>Restaurants in your area</Text>
                     </View>
-
+                    
                     <View style = {{width: SCREEN_WIDTH, paddingTop: 10}}>
                         {
+                            
                             restaurantsData.map(item => (
                                 <View key = {item.id} style = {{paddingBottom: 20}}>
                                     <Foodcard 
@@ -207,6 +210,24 @@ const HomeScreen = () => {
                     </View>
 
                 </ScrollView>
+
+                { // this code: map just show on HOMESCEEN, click PICKUP, map will disappear
+                delivery &&
+                    <View style = {styles.floatingButton}>
+                    <TouchableOpacity
+                        onPress={() => {navigation.navigate('RestaurantMapScreen')}}
+                    >
+                        <Icon 
+                            name="place"
+                            type = "material"
+                            size = {32}
+                            color = {colors.buttons}
+                        />
+                        <Text style = {{color: colors.grey2}}>Map</Text>
+                    </TouchableOpacity>
+                    </View>
+                    
+                }
             
         </View>
     )
@@ -287,5 +308,16 @@ const styles = StyleSheet.create({
     smallCardText:{
         fontWeight: "bold",
         color: colors.grey1,
+    },
+    floatingButton: {
+        position: 'absolute',
+        bottom: 10,
+        right: 15,
+        backgroundColor: 'white',
+        elevation: 10,
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+        alignItems: 'center'
     }
 })

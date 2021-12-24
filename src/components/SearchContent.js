@@ -1,10 +1,11 @@
 import React, {useState, useRef} from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput, FlatList, TouchableOpacity} from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput, FlatList, TouchableOpacity, keyboard} from 'react-native'
 import { colors } from '../global/styles'
 import {Icon} from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
 import { useNavigation } from '@react-navigation/native';
 import {filterData} from '../global/Data'
+import filter from 'lodash/filter'
 
 const SearchContent = () => {
 
@@ -13,6 +14,20 @@ const SearchContent = () => {
     const [modalVisible, setModalVisible] = useState(false)
     const [textInputFossued,setTextInputFossued] = useState(true)
     const textInput = useRef(0)
+
+
+    const contains = ({name}, query) => {
+        if(name.includes(query)){ return true}
+        return false
+    }
+
+    const handleSearch = text => {
+        const dataS = filter(filterData, userSearch => {
+            return contains(userSearch, text)
+        })
+
+        setData([...dataS])
+    }
 
     
     return (
@@ -43,7 +58,10 @@ const SearchContent = () => {
             <View style = {styles.modal}>
                 <View style = {styles.view1}>
                     <View style = {styles.TextInput}> 
-                        <Animatable.View>
+                        <Animatable.View
+                            animation = {textInputFossued ? "fadeInRight" : "fadeInLeft"}
+                            duration = {400}
+                        >
                             <Icon 
                                 name = {textInputFossued ? "arrow-back" : "search"}
                                 onPress = {() => {
@@ -65,10 +83,15 @@ const SearchContent = () => {
                             placeholder=''
                             autoFocus = {false}
                             ref = {textInput}
-
+                            onFocus={() => setTextInputFossued(true)}
+                            onBlur={() => setTextInputFossued(false)}
+                            onChangeText = {handleSearch}
                         />
 
-                        <Animatable.View>
+                        <Animatable.View
+                            animation = {textInputFossued ? "fadeInLeft" : ""}
+                            duration = {400}
+                        >
                             <Icon 
                                 name = {textInputFossued ? "cancel" : null}
                                 iconStyle = {{color: colors.grey3}}
@@ -139,7 +162,7 @@ const styles = StyleSheet.create({
       },
 
     SearchArea:{marginTop :10,
-        width:"94%",
+        width:"96%",
         height:50,
         backgroundColor:colors.grey5,
         borderRadius:12,

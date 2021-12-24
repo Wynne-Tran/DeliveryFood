@@ -7,6 +7,7 @@ import HomeScreen from '../screens/HomeScreen';
 import SearchScreen from '../screens/SearchScreen';
 import MyOrdersScreen from '../screens/MyOrdersScreen';
 import MyAccountScreen from '../screens/MyAccountScreen';
+import ClientStack from './ClientStack';
 
 
 
@@ -67,7 +68,8 @@ const ClientTabs = () => {
 
             < ClientTabsNav.Screen 
                 name = "SearchScreen"
-                component = {SearchScreen}
+                //component = {SearchScreen}
+                component = {ClientStack}
                 options = {
                     {
                         headerShown: false,

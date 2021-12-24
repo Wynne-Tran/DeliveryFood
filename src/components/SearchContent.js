@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react'
-import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput, FlatList, TouchableOpacity, keyboard} from 'react-native'
+import { StyleSheet, Text, View, TouchableWithoutFeedback, Modal, TextInput, FlatList, TouchableOpacity, Keyboard} from 'react-native'
 import { colors } from '../global/styles'
 import {Icon} from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
@@ -113,8 +113,8 @@ const SearchContent = () => {
                     renderItem = {({item}) => (
                         <TouchableOpacity 
                             onPress={() => {
-                                keyboard.dismiss
-                                navigation.navigate("RestaurantSearchScreen", {item: item.name})
+                                Keyboard.dismiss
+                                navigation.navigate("SearchResultScreen", {item: item.name})
                                 setModalVisible(false)
                                 setTextInputFossued(true)
                             }}

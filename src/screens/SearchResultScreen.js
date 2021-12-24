@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, Dimensions } from 'react-native'
 import SearchResultCard from '../components/SearchResultCard'
 import { restaurantsData } from '../global/Data'
 import {colors} from "../global/styles";
+import {productData} from '../global/Data'
+import { FlatList } from 'react-native-gesture-handler';
 
 const SCREEN_WIDTH = Dimensions.get('window').width
 
@@ -10,19 +12,34 @@ const SearchResultScreen = ({navigation, route}) => {
     return (
         <View style = {styles.container}>
             <View>
-                <Text style = {styles.listHeader}>{restaurantsData.length} Results {route.params.item}</Text>
+                <FlatList
+                    style ={{backgroundColor:colors.cardbackground}}
+                    data = {restaurantsData}
+                    keyExtractor ={(item,index)=>index.toString()}
+                    renderItem ={({item,index})=> (
+                        <SearchResultCard 
+                            screenWidth = {SCREEN_WIDTH}
+                            images = {item.images}
+                            averageReview={item.averageReview}
+                            numberOfReview={item.numberOfReview}
+                            restaurantName={item.restaurantName}
+                            farAway={item.farAway}
+                            businessAddress={item.businessAddress}
+                            productData={item.productData}
+        
+                    />
+                    )}
+                    ListHeaderComponent={
+                        <View>
+                            <Text style = {styles.listHeader}>{restaurantsData.length} Results {route.params.item}</Text>
+                        </View>
+                    }
+
+                    showsHorizontalScrollIndicator = {false}
+                />
             </View>
             
-            <SearchResultCard 
-                screenWidth = {SCREEN_WIDTH}
-                images = {restaurantsData[0].images}
-                averageReview={restaurantsData[0].averageReview}
-                numberOfReview={restaurantsData[0].numberOfReview}
-                restaurantName={restaurantsData[0].restaurantName}
-                farAway={restaurantsData[0].farAway}
-                businessAddress={restaurantsData[0].businessAddress}
-
-            />
+       
         </View>
     )
 }
@@ -32,6 +49,7 @@ export default SearchResultScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: 35,
     },
     listHeader: {
         color :colors.grey1,

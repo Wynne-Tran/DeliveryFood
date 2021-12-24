@@ -9,7 +9,7 @@ import { colors } from '../global/styles'
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const SearchScreen = ({navigation}) => {
     return (
-        <View style = {{flex:1, marginBottom: 10}}>
+        <View style = {{flex:1, marginBottom: 10, paddingTop: 35}}>
             <View style = {{marginStart: 10, }}>
                 <SearchContent />
             </View>

@@ -1,8 +1,11 @@
 import React from 'react'
-import { StyleSheet, Text, View, ImageBackground, TouchableOpacity } from 'react-native'
+import { StyleSheet, Text, View, ImageBackground, TouchableOpacity, FlatList } from 'react-native'
 import {Icon} from 'react-native-elements'
 
 import {colors} from "../global/styles";
+import ProductCard from './ProductCard';
+
+
 
 const SearchResultCard = ({
     OnPressRestaurantCard,
@@ -15,9 +18,10 @@ const SearchResultCard = ({
     farAway ,
     averageReview ,
     images,
-    productData}) => {
+    productData
+}) => {
     return (
-        <View>
+        <View >
             <View style = {styles.view1}>
                 <View style={{height: 150}}> 
                     <ImageBackground 
@@ -58,6 +62,25 @@ const SearchResultCard = ({
 
 
             </View>
+
+            <View style = {{marginTop: 5, paddingBottom: 20}}>
+                
+                <FlatList
+                    style ={{backgroundColor:colors.cardbackground}}
+                    data = {productData}
+                    keyExtractor ={(item,index)=>index.toString()}
+                    renderItem ={({item,index})=> (
+                        <ProductCard 
+                        image = {item.image}
+                        productName ={item.name}
+                        price ={item.price}
+                        />
+                    )}
+                    horizontal ={true}
+                />
+            </View>
+
+
         </View>
     )
 }

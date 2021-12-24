@@ -79,7 +79,7 @@ const SearchContent = () => {
                         </Animatable.View>
 
                         <TextInput 
-                            style = {{width: "90%", height: 50}}
+                            style = {{width: "85%", height: 50}}
                             placeholder=''
                             autoFocus = {false}
                             ref = {textInput}
@@ -194,9 +194,9 @@ const styles = StyleSheet.create({
             color:colors.grey2,
     },
     modal :{
-        flex:1
+        flex:1,
+        paddingTop: 35
+
     },
-    modal : {
-        flex: 1
-    }
+
 })

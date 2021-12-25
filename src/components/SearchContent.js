@@ -79,7 +79,7 @@ const SearchContent = () => {
                         </Animatable.View>
 
                         <TextInput 
-                            style = {{width: "85%", height: 50}}
+                            style = {{width: "95%", height: 50}}
                             placeholder=''
                             autoFocus = {false}
                             ref = {textInput}

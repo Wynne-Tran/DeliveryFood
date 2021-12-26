@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import { StyleSheet, Text, View, TouchableOpacity, 
-    ScrollView, FlatList, Pressable, Image, Dimensions } from 'react-native'
+    ScrollView, FlatList, Pressable, Image, Dimensions, StatusBar } from 'react-native'
 import HomeHeader from '../components/HomeHeader'
 import { colors, parameters } from '../global/styles'
 import {Icon} from 'react-native-elements'
@@ -18,6 +18,12 @@ const HomeScreen = ({navigation}) => {
 
     return (
         <View style={styles.container}>
+            <StatusBar 
+                translucent
+                barStyle='light-content'
+                backgroundColor="rgba(255, 140, 82, 1)"
+            />
+
             <HomeHeader  navigation={navigation}/>
                 <ScrollView
                     stickyHeaderIndices={[0]}
@@ -238,6 +244,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        paddingTop: 62
     },
     deliveryButton: {
         paddingHorizontal: 20,

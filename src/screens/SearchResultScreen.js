@@ -52,7 +52,7 @@ export default SearchResultScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 35,
+        paddingTop: 62,
     },
     listHeader: {
         color :colors.grey1,

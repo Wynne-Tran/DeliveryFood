@@ -1,5 +1,5 @@
 import React, {useState, useRef} from 'react'
-import { StyleSheet, Text, View, StatusBar, TextInput } from 'react-native';
+import { StyleSheet, Text, View, StatusBar, TextInput, ScrollView} from 'react-native';
 import {colors, parameters, title} from "../../global/styles"
 import Header from '../../components/Header';
 import * as Animatable from 'react-native-animatable'
@@ -15,6 +15,7 @@ const SignInScreen = ({navigation, }) => {
     return (
         <View style = {styles.container}>
             <Header title= "MY ACCOUNT" type="arrow-left" navigation = {navigation}/>
+            <ScrollView>
             <View style = {{marginLeft: 20, marginTop: 10}}>
                 <Text style = {title} >Sign In</Text>
             </View>
@@ -103,15 +104,16 @@ const SignInScreen = ({navigation, }) => {
                     <Text style = {{...styles.text1}}>New on XpressFood ?</Text>
                 </View>
 
-                <View style = {{alignItems: "flex-end", marginHorizontal: 20}}>
+                <View style = {{alignItems: "flex-end", marginHorizontal: 20, marginBottom: 20}}>
                     <Button 
                         title="Create an account"
                         buttonStyle={styles.createButton}
                         titleStyle = {styles.createButtonTitle}
-                    
+                        onPress={() => {navigation.navigate("SignUpScreen")}}
                     />
                 </View>
             </View>
+            </ScrollView>
         </View>
     )
 }

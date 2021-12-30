@@ -1,24 +1,28 @@
 import React from 'react'
-import { StyleSheet, Text, View, StatusBar } from 'react-native';
-import {colors, parameters} from "./src/global/styles"
-import RootNavigators from './src/navigation/RootNavigators';
+
+import {View, StyleSheet,StatusBar} from 'react-native'
+import  {SignInContextProvider}  from './src/contexts/authContext'
+import {colors} from './src/global/styles'
+import RootNavigators from './src/navigation/RootNavigators'
 
 
-export default function App() {
-  return (
-    <View style={styles.container}>
+export default function App(){
+  return(
+    <SignInContextProvider>
+    <View style = {styles.container}>
       <StatusBar 
         barStyle = "light-content"
         backgroundColor = {colors.statusbar}
       />
-      <RootNavigators/>
+   
+        <RootNavigators/>
+     
     </View>
-  );
+    </SignInContextProvider> 
+  
+  )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    
-  },
-});
+  container: {flex:1}
+})

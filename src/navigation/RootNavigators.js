@@ -1,17 +1,18 @@
-import { NavigationContainer } from '@react-navigation/native'
-import React from 'react'
-import { StyleSheet, Text, View, StatusBar } from 'react-native'
-import { NativeScreenContainer } from 'react-native-screens'
-import AuthNavigators from './authNavigators'
+import React,{useContext} from 'react';
+import {NavigationContainer} from '@react-navigation/native'
+import  AuthNavigators  from '../navigation/authNavigators';
+import  AppStack  from '../navigation/AppStack';
+import { SignInContext } from '../contexts/authContext';
 
-const RootNavigators = () => {
-    return (
-        <NavigationContainer>
-            <AuthNavigators/>
-        </NavigationContainer>
+
+
+export default function RootNavigators(){
+
+    const {signedIn} = useContext(SignInContext)
+
+    return(
+    <NavigationContainer>
+        {signedIn.userToken === null  ?  <AuthNavigators />: <AppStack />}
+    </NavigationContainer>
     )
 }
-
-export default RootNavigators
-
-const styles = StyleSheet.create({})

@@ -1,12 +1,11 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import { StyleSheet, Text, View, ScrollView, TextInput, Alert } from 'react-native'
 import {colors} from "../../global/styles"
 import Header from '../../components/Header';
 import {Formik} from 'formik'
 import {Icon, Button} from 'react-native-elements'
 import * as Animatable from 'react-native-animatable'
-import auth from '@react-native-firebase/auth';
-// yarn add @react-native-firebase/app
+import { auth } from '../../../firebase'
 
 const initialValues = {phone_number: '', name: "", family_name: "", password: "", email: '', username: ""}
 
@@ -16,22 +15,22 @@ const SignUpScreen = ({navigation}) => {
   const [passwordFocussed, setPassorFocussed] = useState(false)
   const [passwordBlurded, setPasswordBlurded] = useState(false)
 
+
   async function signUp(values) {
     const {email, password} = values 
     try {
-      await auth().createUserWithEmailAndPassword(email, password)
-      console.log("User account created")
+      await 
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user;
+            console.log(user.email + " account was created")
+            navigation.navigate("SignInScreen")
+        })
     }
     catch (error) {
-      if(error.code === 'auth/email-already-in-use'){
-        Alert.alert('That email address is already inuse')
-      }
-      if(error.code === 'auth/invalid-email'){
-        Alert.alert('That email address is invalid')
-      }
-      else {
-        console.log(error)
-      }
+      alert(error)
+      //console.log(error)
     }
   }
     return (
@@ -125,6 +124,7 @@ const SignUpScreen = ({navigation}) => {
                                 value = {props.values.password}
                                 onFocus={() => {setPassorFocussed(true)}}
                                 onBlur={() => {setPasswordBlurded(true)}}
+                                secureTextEntry
                               />
                           </View>
                           <Animatable.View animation={passwordBlurded? "fadeInLeft" : "fadeInRight"} duration={400}>

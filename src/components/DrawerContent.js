@@ -3,9 +3,19 @@ import { StyleSheet, Text, View, Linking, Pressable, Alert, Switch } from 'react
 import {DrawerContentScrollView, DrawerItemList, DrawerItem} from '@react-navigation/drawer'
 import {Avatar, Button, Icon} from 'react-native-elements'
 import {colors} from '../global/styles'
+import {auth} from '../../firebase'
 
 
 const DrawerContent = (props) => {
+
+
+    const handleSignOut = () => {
+        auth
+        .signOut()
+        .then(props.navigation.navigate('SignInWelcomeScreen'))
+        .catch(error => alert(error.message))
+    }
+
     return (
         <View style = {styles.container}>
             <DrawerContentScrollView {...props} >
@@ -112,6 +122,7 @@ const DrawerContent = (props) => {
             </DrawerContentScrollView>
 
             <DrawerItem 
+                    style = {{marginBottom: 30}}
                     label = "Sign Out"
                     icon = {({color, size}) => (
                         <Icon 
@@ -122,6 +133,7 @@ const DrawerContent = (props) => {
 
                         />
                     )}
+                    onPress={handleSignOut}
                 />
         </View>
 

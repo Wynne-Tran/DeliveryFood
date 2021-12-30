@@ -7,7 +7,7 @@ import {Icon} from 'react-native-elements'
 import {filterData, restaurantsData} from '../global/Data'
 import Foodcard from '../components/Foodcard'
 import Countdown from 'react-native-countdown-component'
-import { color } from 'react-native-elements/dist/helpers'
+
 
 
 const SCREEN_WIDTH = Dimensions.get('window').width
@@ -244,7 +244,7 @@ export default HomeScreen
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        paddingTop: 62
+        paddingTop: 1
     },
     deliveryButton: {
         paddingHorizontal: 20,

@@ -4,13 +4,26 @@ import {colors, parameters, title} from "../../global/styles"
 import Header from '../../components/Header';
 import * as Animatable from 'react-native-animatable'
 import { Icon, Button, SocialIcon } from 'react-native-elements';
+import { auth } from '../../../firebase'
 
 const SignInScreen = ({navigation, }) => {
 
     const[textInput2Fossued, setTextInput2Fossued] = useState(false)
 
-    const textInput1 = useRef(1)
-    const textInput2 = useRef(2)
+    const [email, setEmail ] = useState('')
+    const [password, setPassword] = useState('')
+
+    const handleLogIn = () => {
+        auth
+        .signInWithEmailAndPassword(email, password)
+        .then(userCredentials => {
+            const user = userCredentials.user;
+            console.log(user.email)
+            navigation.navigate('DrawerNavigator')
+        })
+        .catch (error => console.log(error.message))
+
+    }
 
     return (
         <View style = {styles.container}>
@@ -22,14 +35,15 @@ const SignInScreen = ({navigation, }) => {
             <View style = {{alignItems: "center", marginTop: 10}}>
                 <Text style = {styles.text1} >Please enter email and password</Text>
                 <Text style = {styles.text1} >Registered with your account</Text>
-
             </View>
             <View style = {{marginTop: 10}}>
                 <View>
                     <TextInput 
                         style = {styles.TextInput1}
                         placeholder='Email'
-                        ref = {textInput1}
+                        //ref = {email}
+                        value = {email}
+                        onChangeText={text => setEmail(text)}
                     />
                 </View>
                 <View style = {styles.TextInput2}>
@@ -44,13 +58,16 @@ const SignInScreen = ({navigation, }) => {
                     <TextInput 
                             style = {{width: "80%"}}
                             placeholder='Password'
-                            ref = {textInput2}
+                            //ref = {password}
+                            value = {password}
+                            onChangeText={text => setPassword(text)}
                             onFocus={() => {
                                 setTextInput2Fossued(false)
                             }}
                             onBlur={() => {
                                 setTextInput2Fossued(true)
                             }}
+                            secureTextEntry
                         />
                     <Animatable.View animation={textInput2Fossued ? "" : "fadeInLeft"} duration={400} >
                         <Icon 
@@ -68,7 +85,7 @@ const SignInScreen = ({navigation, }) => {
                         title = "SIGN - IN"
                         buttonStyle = {parameters.styledButton}
                         titleStyle = {parameters.buttonTitle}
-                        onPress={() => {navigation.navigate('DrawerNavigator')}}
+                        onPress={handleLogIn}
                     />
                 </View>
 

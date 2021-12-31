@@ -24,10 +24,8 @@ function signIn(data){
     .signInWithEmailAndPassword(email, password)
     .then(userCredentials => {
         const user = userCredentials.user;
-        if(user){
-            dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
-        }
-        navigation.navigate('App')
+        dispatchSignedIn({type:"UPDATE_SIGN_IN",payload:{userToken:"signed-in"}})
+        //navigation.navigate('App')
     }).catch(error =>
         console.log(error.message))
     }

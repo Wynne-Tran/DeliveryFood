@@ -1,18 +1,20 @@
-import React, {useState, useContext, useEffect} from 'react'
+import React, {useContext} from 'react'
 import { StyleSheet, Text, View, Linking, Pressable, Alert, Switch } from 'react-native'
 import {DrawerContentScrollView, DrawerItemList, DrawerItem} from '@react-navigation/drawer'
 import {Avatar, Button, Icon} from 'react-native-elements'
 import {colors} from '../global/styles'
 import {auth} from '../../firebase'
+import {SignInContext} from '../contexts/authContext'
 
 
 const DrawerContent = (props) => {
 
-
+    const {dispatchSignedIn} = useContext(SignInContext)
     const handleSignOut = () => {
         auth
         .signOut()
-        .then(props.navigation.navigate('SignInWelcomeScreen'))
+        .then(dispatchSignedIn({type: "UPDATE_SIGN_IN", payload: {userToken: null}}))
+        //.then(props.navigation.navigate('SignInWelcomeScreen'))
         .catch(error => alert(error.message))
     }
 

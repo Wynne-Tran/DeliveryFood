@@ -4,7 +4,6 @@ import {createStackNavigator, TransitionPresets} from '@react-navigation/stack'
 import SignInWelcome from '../screens/authScreens/SignInWelcome'
 import SignInScreen from '../screens/authScreens/SignInScreen'
 import SignUpScreen from '../screens/authScreens/SignUpScreen'
-import DrawerNavigator from './DrawerNavigator'
 
 const AuthStack = createStackNavigator();
 
@@ -42,16 +41,7 @@ const AuthNavigators = () => {
                 }}
             />
 
-            <AuthStack.Screen 
-                name = "App"
-                component = {DrawerNavigator}
-                options = {{
-
-                    headerShown: false,
-                    ...TransitionPresets.RevealFromBottomAndroid               
-                }}
-            />
-
+            
             
         </AuthStack.Navigator>
     )

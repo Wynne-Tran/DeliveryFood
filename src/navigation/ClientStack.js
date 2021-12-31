@@ -1,11 +1,12 @@
 import React, {useLayoutEffect} from 'react'
-import { StyleSheet, Text, View } from 'react-native'
-import { createStackNavigator, TransitionPreset } from '@react-navigation/stack'
+import { StyleSheet} from 'react-native'
+import { createStackNavigator} from '@react-navigation/stack'
 import SearchScreen from '../screens/SearchScreen'
 import SearchResultScreen from '../screens/SearchResultScreen'
 import RestaurantHomeScreen from '../screens/RestaurantHomeScreen'
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native'
 import MenuProductScreen from '../screens/MenuProductScreen'
+import PreferenceScreen from '../screens/PreferenceScreen'
 
 
 const ClientSearch = createStackNavigator()
@@ -56,6 +57,16 @@ const ClientStack = ({navigation, route}) => {
             <ClientSearch.Screen 
                 name = "MenuProductScreen"
                 component = {MenuProductScreen}
+                options = {
+                    () => ({
+                        headerShown: false,
+                    })
+                }
+            />
+
+            <ClientSearch.Screen 
+                name = "PreferenceScreen"
+                component = {PreferenceScreen}
                 options = {
                     () => ({
                         headerShown: false,
